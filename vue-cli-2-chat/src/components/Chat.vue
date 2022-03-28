@@ -4,7 +4,7 @@
      <div class="card">
        <div class="card-content">
          <ul class="messages">
-           <li>Message</li>
+           <li>{{name}}</li>
          </ul>
        </div>
      </div>
@@ -14,9 +14,10 @@
 <script>
 export default {
 name:'Chat',
+props:['name'],
 data(){
     return{
-        
+        messages:[]
     }
 }
 }
