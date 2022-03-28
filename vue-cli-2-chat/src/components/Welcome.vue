@@ -1,6 +1,20 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="welcome container">
+    <div class="card">
+      <div class="card-content center-align">
+         <h2 class="teal-text">Welcome</h2>
+         <form @submit.prevent="enterChat">
+     <div>
+       <label for="name">Name:</label>
+       <input type="text" v-model="userName" name="name"  placeholder="Enter Name"></div>
+        <div>
+           <p v-if="error">{{ error }}</p>
+        <button class="btn teal">Enter Chat</button>
+      </div>
+   </form>
+      </div>
+    </div>
+   
    </div>
 </template>
 
@@ -9,26 +23,34 @@ export default {
   name: 'Welcome',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+     userName: null,
+     error:null
+    }
+  },
+  methods:{
+    // Function to handle user chat room entry 
+    enterChat(){
+      if(this.userName){
+        this.error = null;
+        alert(`hi ${this.userName}!`)
+      }else{
+        this.error = "Please enter your user name.";
+      }
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+
+<style>
+.welcome{
+  max-width: 400px;
+  margin-top: 100px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.welcome h2{
+  font-size: 3em;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.welcome button{
+  margin: 30px auto;
 }
 </style>
