@@ -33,6 +33,21 @@ data(){
 }
 .chat .time{
   display: block;
-  font-size: 1.2em;
+  font-size: 0.8em;
+}
+.messages{
+  max-height: 300px;
+  overflow: auto;
+}
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+ 
+.messages::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+.messages::-webkit-scrollbar-thumb {
+  background: #aaa; 
 }
 </style>
